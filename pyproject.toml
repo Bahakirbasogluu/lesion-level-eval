@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lesion-eval"
+version = "0.1.0"
+description = "Lesion-level evaluation of 3D segmentation masks: size-stratified detection, false positives per study, patient-cluster bootstrap."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Baha Kırbaşoğlu" }]
+dependencies = ["numpy>=1.24", "scipy>=1.10"]
+
+[project.optional-dependencies]
+nifti = ["nibabel>=5"]
+dev = ["pytest>=8", "ruff>=0.5", "nibabel>=5"]
+
+[project.scripts]
+lesion-eval = "lesion_eval.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lesion_eval"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
