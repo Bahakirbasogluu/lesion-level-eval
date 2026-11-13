@@ -1,5 +1,7 @@
 # lesion-eval
 
+[![CI](https://github.com/Bahakirbasogluu/lesion-level-eval/actions/workflows/ci.yml/badge.svg)](https://github.com/Bahakirbasogluu/lesion-level-eval/actions/workflows/ci.yml)
+
 Lesion-level evaluation for 3D segmentation masks. It answers the question a voxel-overlap score does not: of the lesions in the reference, how many were found, at which sizes, and at what cost in false positives.
 
 Dice is dominated by large lesions. A mass of thousands of voxels outweighs a dozen small foci, so a model can post a reasonable Dice while missing most of the small ones. This package reports the numbers that expose that, with intervals that respect how the data is structured.
